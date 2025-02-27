@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import useAppStore from './store';
+import useAppStore from '../store';
 
 const MatchesScreen: React.FC = () => {
   const acceptedProfiles = useAppStore((state) => state.acceptedProfiles);

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import Swiper from 'react-native-deck-swiper';
-import useAppStore from './store'; // Importez votre store
+import useAppStore from '../store'; // Importez votre store
 
 interface Card {
   id: number;
@@ -16,7 +16,7 @@ const cards: Card[] = [
 ];
 
 const IndexScreen: React.FC = () => {
-  const swiperRef = useRef<Swiper>(null);
+  const swiperRef = useRef<Swiper<Card>>(null);
   const [cardIndex, setCardIndex] = useState(0);
   const acceptProfile = useAppStore((state) => state.acceptProfile); // Utilisation du store
 
