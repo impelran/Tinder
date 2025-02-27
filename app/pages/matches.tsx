@@ -1,17 +1,17 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import useAppStore from '../store';
+import MiniCard from '../../components/MiniCard';
 
 const MatchesScreen: React.FC = () => {
   const acceptedProfiles = useAppStore((state) => state.acceptedProfiles);
 
   return (
-    <View style={styles.container}>
-      <Text>Profils Acceptés:</Text>
+    <ScrollView contentContainerStyle={styles.container}>
       {acceptedProfiles.map((profile) => (
-        <Text key={profile.id}>{profile.name}</Text>
+        <MiniCard key={profile.name} profile={profile} />
       ))}
-    </View>
+    </ScrollView>
   );
 };
 

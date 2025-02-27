@@ -7,9 +7,9 @@ interface User {
 }
 
 interface Profile {
-  id: number;
   name: string;
-  // Ajoutez d'autres propriétés de profil ici
+  age: number;
+  image: string;
 }
 
 interface AppState {

@@ -6,14 +6,28 @@ import useAppStore from '../store'; // Importez votre store
 interface Card {
   id: number;
   name: string;
+  age: number;
+  bio: string;
   image: string;
 }
 
 const cards: Card[] = [
-  { id: 1, name: 'Alice', image: 'https://placekitten.com/200/300' },
-  { id: 2, name: 'Bob', image: 'https://placekitten.com/201/301' },
-  { id: 3, name: 'Charlie', image: 'https://placekitten.com/202/302' },
+  {
+    id: 1,
+    name: "Alice",
+    age: 24,
+    bio: "Fan de React et de voyages",
+    image: "https://randomuser.me/api/portraits/women/1.jpg",
+  },
+  {
+    id: 2,
+    name: "Bob",
+    age: 27,
+    bio: "Développeur mobile et amateur de café",
+    image: "https://randomuser.me/api/portraits/men/2.jpg",
+  },
 ];
+
 
 const IndexScreen: React.FC = () => {
   const swiperRef = useRef<Swiper<Card>>(null);
@@ -39,7 +53,8 @@ const IndexScreen: React.FC = () => {
         renderCard={(card) => (
           <View style={styles.card}>
             <Image source={{ uri: card.image }} style={styles.cardImage} />
-            <Text style={styles.cardText}>{card.name}</Text>
+            <Text style={styles.cardText}>{card.name}, {card.age}</Text>
+            <Text>{card.bio}</Text>
           </View>
         )}
         onSwipedLeft={onSwipedLeft}
